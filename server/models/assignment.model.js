@@ -10,7 +10,7 @@ const assignmentSchema = new Schema({
     assignment: {
         type: String,
         required: true,
-        max: 65
+        max: 55
     },
     weight: {
         type: Number,

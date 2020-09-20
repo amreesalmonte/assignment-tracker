@@ -37,6 +37,7 @@ export default class CreateAssignment extends Component {
                     })
                 }
             })
+            .catch((err) => { console.log(err) })
     }
 
     onChangeSubject(e) {
@@ -80,11 +81,20 @@ export default class CreateAssignment extends Component {
             dueDate: this.state.dueDate
         }
 
-        // adding to database
         console.log(assignment)
 
+        // adding to database
         axios.post('http://localhost:5000/assignments/add', assignment)
-            .then(res => console.log(res.data));
+            .then(res => console.log(res.data))
+            .catch((err) => { console.log(err) })
+
+        // makes input fields empty again
+        this.setState({
+            subject: "",
+            assignment: "",
+            weight: 0,
+            grade: 0,
+        })
     }
 
     render() {
@@ -107,17 +117,22 @@ export default class CreateAssignment extends Component {
                             type="text"
                             value={this.state.assignment}
                             onChange={this.onChangeAssignment}
+                            maxLength="55"
                             placeholder="ASSIGNMENT" />
                         <input required
                             className="Weight"
                             type="text"
                             value={this.state.weight}
                             onChange={this.onChangeWeight}
+                            maxLength="5"
+                            step="0.01"
                             placeholder="test" />
                         <input required
                             className="Grade"
                             type="text"
                             value={this.state.grade}
+                            maxLength="5"
+                            step="0.01"
                             onChange={this.onChangeGrade} />
                         <DatePicker
                             selected={this.state.dueDate}

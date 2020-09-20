@@ -22,14 +22,14 @@ export default class Subjects extends Component {
             subject: this.state.subject,
         }
 
-        // adding to database
         console.log(subject)
 
-        // sending http post request to endpoint
+        // adding to database
         axios.post('http://localhost:5000/subjects/add', subject)
-            .then(res => console.log(res.data));
+            .then(res => console.log(res.data))
+            .catch((err) => { console.log(err) })
 
-        // makes text box blank again
+        // makes input fields empty again
         this.setState({
             subject: ""
         })
@@ -51,6 +51,7 @@ export default class Subjects extends Component {
                             type="text"
                             value={this.state.subject}
                             onChange={this.onChangeSubject}
+                            maxLength="12"
                             placeholder="SUBJECT" />
                     </div>
                     <div className="subjectSubmit">

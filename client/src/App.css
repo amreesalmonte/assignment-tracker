@@ -40,7 +40,7 @@ form {
   flex-direction: column;
 }
 
-.FormContent, .Categories {
+.FormContent, .Categories, .AssignmentRow {
   display: flex;
   justify-content: space-between;
 }
@@ -80,5 +80,24 @@ form {
 
 .SubjectForm {
   width: 100%;
+}
+
+.AssignmentRow {
+  background-color: var(--sec-color);
+  color: var(--accent-blue);
+  margin: 5px 0px;
+}
+
+.Delete {
+  background-color: var(--sec-color);
+  border: none;
+  color: var(--main-color);
+  width: 20px;
+  font-weight: bolder;
+  transition-duration: 0.4s;
+}
+
+.Delete:hover {
+  color: var(--accent-red);
 }
 

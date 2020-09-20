@@ -15,4 +15,5 @@ body {
   align-items: center;
   justify-content: center;
   background-color: var(--main-color);
+  color: var(--text-color);
 }

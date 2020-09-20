@@ -1,11 +1,23 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import Navigation from "./components/Navigation";
+import AssignmentList from "./components/AssignmentList";
+import EditAssignment from "./components/EditAssignment";
+import CreateAssignment from "./components/CreateAssignment";
+import CreateSubject from "./components/CreateSubject";
+
 import './App.css';
 
 function App() {
   return (
-    <div>
-      hello world
-    </div>
+    <Router>
+      <Navigation />
+      <Route path="/" exact component={AssignmentList} />
+      <Route path="/edit/:id" component={EditAssignment} />
+      <Route path="/create" component={CreateAssignment} />
+      <Route path="/subject" component={CreateSubject} />
+    </Router>
   );
 }
 

@@ -2,29 +2,41 @@
   width: 700px;
 }
 
-.Navigation {
-  display: flex;
-  justify-content: space-between;
-  margin: 40px 0px;
+h1 {
+  line-height: 100%;
+  padding-top: 30px;
 }
 
-.Navigation a{
+.NavigationBar {
+  display: flex;
+  flex-direction: column;
+}
+
+.LinksContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.LinksContainer a{
   text-decoration: None;
   color: var(--main-color);
   font-size: 2.5vh;
   transition-duration: 0.4s;
 }
 
-.Navigation a:hover {
+.LinksContainer a:hover {
   color: var(--accent-blue);
 }
 
 .LinkContainer {
   display: flex;
-  background-color: var(--sec-color);
-  width: 49%;
+  width: 150px;
   padding: 5px 0px;
+  margin-right: 10px;
   justify-content: center;
+  background-color: var(--sec-color);
 }
 
 input, select {
@@ -45,11 +57,18 @@ form {
   justify-content: space-between;
 }
 
+.AssignmentList {
+  padding-bottom: 200px;
+}
+
 .CreateAssignment {
   position: fixed; 
   bottom: 0%;
-  padding-bottom: 20px;
+  padding: 50px 0px 20px 0px;
   width: 700px;
+  height: 100px;
+  background-color: var(--main-color);
+  background: linear-gradient(to top, var(--main-color) 80%, rgb(255, 255, 255, 0));
 }
 
 *:focus {
@@ -94,21 +113,23 @@ form {
 }
 
 .AssignmentRow {
+  display: flex;
   background-color: var(--sec-color);
   color: var(--accent-blue);
   margin: 5px 0px;
 }
 
-.Delete, .Edit {
+.Delete, .Edit, .Edit a {
   background-color: var(--sec-color);
   border: none;
   color: var(--main-color);
   width: 20px;
   font-weight: bolder;
   transition-duration: 0.4s;
+  text-decoration: none;
 }
 
-.Delete:hover, .Edit:hover {
+.Delete:hover, .Edit:hover, .Edit a:hover {
   color: var(--accent-red);
 }
 

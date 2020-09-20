@@ -15,12 +15,14 @@ const assignmentSchema = new Schema({
     weight: {
         type: Number,
         required: true,
-        max: 5
+        max: 100,
+        min: 0
     },
     grade: {
         type: Number,
         required: true,
-        max: 5
+        max: 100,
+        min: 0
     },
     dueDate: {
         type: Date,

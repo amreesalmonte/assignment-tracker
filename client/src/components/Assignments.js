@@ -25,7 +25,7 @@ export default class Assignments extends Component {
     }
 
     onChangeAssignments() {
-        console.log("changing assignment")
+        // new assignments array
         axios.get("http://localhost:5000/assignments/")
             .then(res => {
                 this.setState({ assignments: res.data })
@@ -55,11 +55,13 @@ export default class Assignments extends Component {
                     <div className="EditPlaceholder"></div>
                     <div className="DeletePlaceholder"></div>
                 </div>
-                {this.state.assignments.map((assignment) => {
-                    return (
-                        <Assignment assignment={assignment} deleteAssignment={this.deleteAssignment} key={assignment._id} />
-                    );
-                })}
+                <div className="AssignmentList">
+                    {this.state.assignments.map((assignment) => {
+                        return (
+                            <Assignment assignment={assignment} deleteAssignment={this.deleteAssignment} key={assignment._id} />
+                        );
+                    })}
+                </div>
                 <CreateAssignment onChangeAssignments={this.onChangeAssignments} />
             </div>
         );

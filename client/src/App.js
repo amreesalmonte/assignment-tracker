@@ -13,9 +13,11 @@ function App() {
     <Router>
       <div className="App">
         <Navigation />
-        <Route path="/" exact component={AssignmentList} />
-        <Route path="/edit/:id" component={EditAssignment} />
-        <Route path="/subjects" component={Subjects} />
+        <div className="MainAppContent">
+          <Route path="/" exact component={AssignmentList} />
+          <Route path="/edit/:id" component={EditAssignment} />
+          <Route path="/subjects" component={Subjects} />
+        </div>
       </div>
     </Router>
   );

@@ -76,8 +76,8 @@ export default class CreateAssignment extends Component {
         const assignment = {
             subject: this.state.subject,
             assignment: this.state.assignment,
-            weight: this.state.weight,
-            grade: this.state.grade,
+            weight: Number(this.state.weight),
+            grade: Number(this.state.grade),
             dueDate: this.state.dueDate
         }
 
@@ -87,7 +87,7 @@ export default class CreateAssignment extends Component {
         axios.post('http://localhost:5000/assignments/add', assignment)
             .then(res => {
                 console.log(res.data)
-                this.props.onChangeAssignments()
+                this.props.onChangeAssignments() // call to trigger state change in assigments
             })
             .catch((err) => { console.log(err) })
 

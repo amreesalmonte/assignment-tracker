@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default class CreateAssignment extends Component {
     constructor(props) {
@@ -23,9 +25,10 @@ export default class CreateAssignment extends Component {
         }
     }
 
+    // before application loads
     componentDidMount() {
         this.setState({
-            subjects: ["test1", "test2"],
+            subjects: ["testing12345", "test2"],
             subject: "test"
         })
     }
@@ -77,8 +80,51 @@ export default class CreateAssignment extends Component {
 
     render() {
         return (
-            <div>
-                CreateAssignments
+            <div className="CreateAssignment">
+                <div className="Categories">
+                    <div className="Subject">SUBJECT</div>
+                    <div className="Assignment">ASSIGNMENT</div>
+                    <div className="Weight">WEIGHT</div>
+                    <div className="Grade">GRADE</div>
+                    <div className="Due">DUE</div>
+                </div>
+                <form onSubmit={this.onSubmit}>
+                    <div className="FormContent">
+                        <select required
+                            className="Subject"
+                            value={this.state.subject}
+                            onChange={this.onChangeSubject}>
+                            {
+                                this.state.subjects.map((subject) => {
+                                    return <option key={subject} value={subject}>{subject}</option>;
+                                })
+                            }
+                        </select>
+                        <input required
+                            className="Assignment"
+                            type="text"
+                            value={this.state.assignment}
+                            onChange={this.onChangeAssignment} />
+                        <input required
+                            className="Weight"
+                            type="text"
+                            value={this.state.weight}
+                            onChange={this.onChangeWeight} />
+                        <input required
+                            className="Grade"
+                            type="text"
+                            value={this.state.grade}
+                            onChange={this.onChangeGrade} />
+                        <DatePicker
+                            selected={this.state.dueDate}
+                            onChange={this.onChangeDueDate} />
+                    </div>
+                    <div>
+                        <input type="submit"
+                            value="ADD ASSIGNMENT"
+                            className="Button" />
+                    </div>
+                </form>
             </div>
         );
     }

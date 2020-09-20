@@ -1,5 +1,5 @@
 .App {
-  width: 600px;
+  width: 700px;
 }
 
 .Navigation {
@@ -12,6 +12,7 @@
   text-decoration: None;
   color: var(--main-color);
   font-size: 2.5vh;
+  transition-duration: 0.4s;
 }
 
 .Navigation a:hover {
@@ -25,3 +26,55 @@
   padding: 5px 0px;
   justify-content: center;
 }
+
+input, select {
+  font-family: "Oswald";
+  border: none;
+  color: var(--text-color);
+  font-size: 15px;
+  width: 90px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.FormContent, .Categories {
+  display: flex;
+  justify-content: space-between;
+}
+
+*:focus {
+  outline: none;
+}
+
+.Subject {
+  width: 100px;
+}
+
+.Assignment {
+  width: 350px;
+}
+
+.Weight, .Grade {
+  width: 50px;
+}
+
+.Due {
+  width: 90px;
+}
+
+.Button {
+  width: 100%;
+  margin: 10px 0px;
+  padding: 5px 0px;
+  background-color: var(--accent-green);
+  color: var(--sec-color);
+  transition-duration: 0.4s;
+}
+
+.Button:hover {
+  background-color: #8ED600;
+}
+

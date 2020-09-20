@@ -29,4 +29,35 @@ router.route("/add").post((req, res) => {
         .catch(err => res.status(400).json("Error:" + err));
 });
 
+// returning specific assignment
+router.route("/:id").get((req, res) => {
+    Assignment.findById(req.params.id)
+        .then(assignment => res.json(assignment))
+        .catch(err => res.status(400).json("Error:" + err));
+})
+
+// deleting assignment
+router.route("/:id").delete((req, res) => {
+    Assignment.findByIdAndDelete(req.params.id)
+        .then(() => res.json("Assignment deleted from database"))
+        .catch(err => res.status(400).json("Error:" + err));
+})
+
+// update assignment
+router.route("/update/:id").post((req, res) => {
+    Assignment.findById(req.params.id)
+        .then(assignment => {
+            assignment.subject = req.body.subject;
+            assignment.assignment = req.body.assignment;
+            assignment.weight = Number(req.body.weight);
+            assignment.grade = Number(req.body.grade);
+            assignment.date = Date.parse(req.body.date);
+
+            assignment.save()
+                .then(() => res.json("Assignment updated in database"))
+                .catch(err => res.status(400).json("Error:" + err));
+        })
+        .catch(err => res.status(400).json("Error:" + err));
+})
+
 module.exports = router;

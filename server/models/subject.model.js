@@ -7,7 +7,8 @@ const subjectSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        trim: true, // removes whitespaces at end
+        trim: true,
+        max: 12 // removes whitespaces at end
     }
 });
 

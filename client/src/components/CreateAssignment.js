@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
 
 export default class CreateAssignment extends Component {
     constructor(props) {
@@ -27,10 +28,15 @@ export default class CreateAssignment extends Component {
 
     // before application loads
     componentDidMount() {
-        this.setState({
-            subjects: ["testing12345", "test2"],
-            subject: "test"
-        })
+        axios.get("http://localhost:5000/subjects/")
+            .then(res => {
+                if (res.data.length > 0) {
+                    this.setState({
+                        subjects: res.data.map(subject => subject.subject),
+                        subject: res.data[0].subject
+                    })
+                }
+            })
     }
 
     onChangeSubject(e) {
@@ -76,18 +82,14 @@ export default class CreateAssignment extends Component {
 
         // adding to database
         console.log(assignment)
+
+        axios.post('http://localhost:5000/assignments/add', assignment)
+            .then(res => console.log(res.data));
     }
 
     render() {
         return (
             <div className="CreateAssignment">
-                <div className="Categories">
-                    <div className="Subject">SUBJECT</div>
-                    <div className="Assignment">ASSIGNMENT</div>
-                    <div className="Weight">WEIGHT</div>
-                    <div className="Grade">GRADE</div>
-                    <div className="Due">DUE</div>
-                </div>
                 <form onSubmit={this.onSubmit}>
                     <div className="FormContent">
                         <select required
@@ -96,7 +98,7 @@ export default class CreateAssignment extends Component {
                             onChange={this.onChangeSubject}>
                             {
                                 this.state.subjects.map((subject) => {
-                                    return <option key={subject} value={subject}>{subject}</option>;
+                                    return (<option key={subject} value={subject}>{subject}</option>);
                                 })
                             }
                         </select>
@@ -104,12 +106,14 @@ export default class CreateAssignment extends Component {
                             className="Assignment"
                             type="text"
                             value={this.state.assignment}
-                            onChange={this.onChangeAssignment} />
+                            onChange={this.onChangeAssignment}
+                            placeholder="ASSIGNMENT" />
                         <input required
                             className="Weight"
                             type="text"
                             value={this.state.weight}
-                            onChange={this.onChangeWeight} />
+                            onChange={this.onChangeWeight}
+                            placeholder="test" />
                         <input required
                             className="Grade"
                             type="text"

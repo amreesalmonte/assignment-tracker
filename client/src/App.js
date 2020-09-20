@@ -17,7 +17,7 @@ function App() {
         <Route path="/" exact component={AssignmentList} />
         <Route path="/edit/:id" component={EditAssignment} />
         <Route path="/create" component={CreateAssignment} />
-        <Route path="/subject" component={Subjects} />
+        <Route path="/subjects" component={Subjects} />
       </div>
     </Router>
   );

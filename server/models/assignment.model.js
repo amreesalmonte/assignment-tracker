@@ -6,7 +6,6 @@ const assignmentSchema = new Schema({
     subject: {
         type: String,
         required: true,
-        max: 12
     },
     assignment: {
         type: String,

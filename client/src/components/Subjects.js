@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from "axios";
 
 export default class Subjects extends Component {
     constructor(props) {
@@ -17,26 +18,47 @@ export default class Subjects extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        const assignment = {
+        const subject = {
             subject: this.state.subject,
-            assignment: this.state.assignment,
-            weight: this.state.weight,
-            grade: this.state.grade,
-            dueDate: this.state.dueDate
         }
 
         // adding to database
-        console.log(assignment)
+        console.log(subject)
+
+        // sending http post request to endpoint
+        axios.post('http://localhost:5000/subjects/add', subject)
+            .then(res => console.log(res.data));
+
+        // makes text box blank again
+        this.setState({
+            subject: ""
+        })
     }
+
     onChangeSubject(e) {
         this.setState({
             subject: e.target.value
         });
     }
+
     render() {
         return (
             <div>
-                Subjects
+                <form onSubmit={this.onSubmit}>
+                    <div className="FormContent">
+                        <input required
+                            className="SubjectForm"
+                            type="text"
+                            value={this.state.subject}
+                            onChange={this.onChangeSubject}
+                            placeholder="SUBJECT" />
+                    </div>
+                    <div className="subjectSubmit">
+                        <input type="submit"
+                            value="ADD SUBJECT"
+                            className="Button" />
+                    </div>
+                </form>
             </div>
         );
     }

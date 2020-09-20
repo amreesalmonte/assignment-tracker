@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import axios from "axios";
 
 import Assignment from "./Assignment";
+import CreateAssignment from './CreateAssignment';
 
 export default class Assignments extends Component {
     constructor(props) {
         super();
 
         this.deleteAssignment = this.deleteAssignment.bind(this)
+        this.onChangeAssignments = this.onChangeAssignments.bind(this)
 
         this.state = {
             assignments: []
@@ -21,6 +23,16 @@ export default class Assignments extends Component {
             })
             .catch((err) => { console.log(err) });
     }
+
+    onChangeAssignments() {
+        console.log("changing assignment")
+        axios.get("http://localhost:5000/assignments/")
+            .then(res => {
+                this.setState({ assignments: res.data })
+            })
+            .catch((err) => { console.log(err) });
+    }
+
 
     deleteAssignment(id) {
         axios.delete("http://localhost:5000/assignments/" + id)
@@ -48,6 +60,7 @@ export default class Assignments extends Component {
                         <Assignment assignment={assignment} deleteAssignment={this.deleteAssignment} key={assignment._id} />
                     );
                 })}
+                <CreateAssignment onChangeAssignments={this.onChangeAssignments} />
             </div>
         );
     }

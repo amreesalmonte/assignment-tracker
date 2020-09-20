@@ -85,12 +85,15 @@ export default class CreateAssignment extends Component {
 
         // adding to database
         axios.post('http://localhost:5000/assignments/add', assignment)
-            .then(res => console.log(res.data))
+            .then(res => {
+                console.log(res.data)
+                this.props.onChangeAssignments()
+            })
             .catch((err) => { console.log(err) })
+
 
         // makes input fields empty again
         this.setState({
-            subject: "",
             assignment: "",
             weight: 0,
             grade: 0,

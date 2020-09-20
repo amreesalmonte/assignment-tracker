@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-export default class EditAssignments extends Component {
+export default class Assignments extends Component {
     render() {
         return (
             <div>
-                EditAssignments
+                Assignments
             </div>
         );
     }

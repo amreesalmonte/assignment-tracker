@@ -1,0 +1,27 @@
+.App {
+  width: 600px;
+}
+
+.Navigation {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0px;
+}
+
+.Navigation a{
+  text-decoration: None;
+  color: var(--main-color);
+  font-size: 2.5vh;
+}
+
+.Navigation a:hover {
+  color: var(--accent-blue);
+}
+
+.LinkContainer {
+  display: flex;
+  background-color: var(--sec-color);
+  width: 31%;
+  padding: 5px 0px;
+  justify-content: center;
+}

@@ -19,7 +19,7 @@ const assignmentSchema = new Schema({
         type: Number,
         required: true
     },
-    date: {
+    dueDate: {
         type: Date,
         required: true
     }

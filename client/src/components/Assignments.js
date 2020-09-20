@@ -40,6 +40,8 @@ export default class Assignments extends Component {
                     <div className="Weight">WEIGHT</div>
                     <div className="Grade">GRADE</div>
                     <div className="Due">DUE</div>
+                    <div className="EditPlaceholder"></div>
+                    <div className="DeletePlaceholder"></div>
                 </div>
                 {this.state.assignments.map((assignment) => {
                     return (

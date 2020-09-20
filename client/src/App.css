@@ -65,6 +65,10 @@ form {
   width: 90px;
 }
 
+.DeletePlaceholder, .EditPlaceholder{
+  width: 20px;
+}
+
 .Button {
   width: 100%;
   margin: 10px 0px;
@@ -88,7 +92,7 @@ form {
   margin: 5px 0px;
 }
 
-.Delete {
+.Delete, .Edit {
   background-color: var(--sec-color);
   border: none;
   color: var(--main-color);
@@ -97,7 +101,7 @@ form {
   transition-duration: 0.4s;
 }
 
-.Delete:hover {
+.Delete:hover, .Edit:hover {
   color: var(--accent-red);
 }
 

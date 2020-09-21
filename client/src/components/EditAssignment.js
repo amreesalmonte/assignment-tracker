@@ -22,7 +22,8 @@ export default class EditAssignment extends Component {
             weight: 0,
             grade: 0,
             dueDate: new Date(),
-            subjects: []
+            subjects: [],
+            completed: ""
         }
     }
 
@@ -37,7 +38,8 @@ export default class EditAssignment extends Component {
                     assignment: res.data.assignment,
                     weight: res.data.weight,
                     grade: res.data.grade,
-                    dueDate: new Date(res.data.dueDate)
+                    dueDate: new Date(res.data.dueDate),
+                    completed: res.data.completed
                 })
             })
         // populating list of subjects
@@ -90,7 +92,8 @@ export default class EditAssignment extends Component {
             assignment: this.state.assignment,
             weight: Number(this.state.weight),
             grade: Number(this.state.grade),
-            dueDate: this.state.dueDate
+            dueDate: this.state.dueDate,
+            completed: this.state.completed
         }
 
         console.log(assignment)
@@ -103,15 +106,7 @@ export default class EditAssignment extends Component {
             })
             .catch((err) => { console.log(err) })
 
-
-        // makes input fields empty again
-        this.setState({
-            assignment: "",
-            weight: 0,
-            grade: 0,
-        })
-
-        // takes user back to assignments list after editing
+        // takes user back to assignment list after editing
         window.location = "/";
     }
 

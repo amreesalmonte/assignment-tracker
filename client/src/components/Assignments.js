@@ -19,7 +19,12 @@ export default class Assignments extends Component {
     componentDidMount() {
         axios.get("http://localhost:5000/assignments/")
             .then(res => {
-                this.setState({ assignments: res.data })
+                this.setState({
+                    assignments: res.data.sort((a, b) => {
+                        return new Date(a.dueDate).getTime() -
+                            new Date(b.dueDate).getTime()
+                    })
+                })
             })
             .catch((err) => { console.log(err) });
     }
@@ -28,7 +33,12 @@ export default class Assignments extends Component {
         // new assignments array
         axios.get("http://localhost:5000/assignments/")
             .then(res => {
-                this.setState({ assignments: res.data })
+                this.setState({
+                    assignments: res.data.sort((a, b) => {
+                        return new Date(a.dueDate).getTime() -
+                            new Date(b.dueDate).getTime()
+                    })
+                })
             })
             .catch((err) => { console.log(err) });
     }

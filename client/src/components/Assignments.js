@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import ViewList from "./ViewList";
 
-export default class Assignments extends Component {
-    render() {
-        return (
-            <div>
-                <ViewList assignmentStatus={false} checkType="NotComplete" />
-            </div>
-        );
-    }
+export default function Assignments() {
+    return (
+        <div>
+            <ViewList assignmentStatus={false} checkType="NotComplete" />
+        </div>
+    );
 }
+

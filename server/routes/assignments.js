@@ -3,7 +3,7 @@ let Assignment = require("../models/assignment.model");
 
 // returns all assignments
 router.route("/").get((req, res) => {
-    Assignment.find() // returns a promise
+    Assignment.find()
         .then(assignments => res.json(assignments))
         .catch(err => res.status(400).json("Error:" + err));
 });

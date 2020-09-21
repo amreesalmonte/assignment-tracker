@@ -27,7 +27,7 @@ export default class EditAssignment extends Component {
         }
     }
 
-    // before application loads
+    // after component renders
     componentDidMount() {
         // setting empty fields with the assignment you want to edit
         axios.get("http://localhost:5000/assignments/" + this.props.match.params.id) // getting id from url

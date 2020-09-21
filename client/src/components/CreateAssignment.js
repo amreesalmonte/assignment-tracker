@@ -27,7 +27,7 @@ export default class CreateAssignment extends Component {
         }
     }
 
-    // before application loads
+    // after component renders
     componentDidMount() {
         axios.get("http://localhost:5000/subjects/")
             .then(res => {

@@ -27,6 +27,10 @@ const assignmentSchema = new Schema({
     dueDate: {
         type: Date,
         required: true
+    },
+    completed: {
+        type: Boolean,
+        required: true
     }
 });
 

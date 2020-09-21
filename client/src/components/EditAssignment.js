@@ -95,7 +95,7 @@ export default class EditAssignment extends Component {
 
         console.log(assignment)
 
-        // adding to database
+        // updating database
         axios.post('http://localhost:5000/assignments/update/' + this.props.match.params.id, assignment)
             .then(res => {
                 console.log(res.data)

@@ -11,6 +11,7 @@ export default (props) => {
             <div className="Due">{props.assignment.dueDate.substring(0, 10)}</div>
             <button className="Edit"><Link to={"/edit/" + props.assignment._id}>E</Link></button>
             <button className="Delete" onClick={() => props.deleteAssignment(props.assignment._id)}>X</button>
+            <button className={props.checkType} onClick={() => props.checkAssignment(props.assignment)}>O</button>
         </div>
     )
 }

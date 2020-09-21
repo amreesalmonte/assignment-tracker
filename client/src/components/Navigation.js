@@ -8,6 +8,7 @@ export default class Navigation extends Component {
                 <h1>ASSIGNMENT TRACKER</h1>
                 <div className="LinksContainer">
                     <div className="LinkContainer"><NavLink exact to="/" activeStyle={{ color: "#3B9EE5" }}>ASSIGNMENTS</NavLink></div>
+                    <div className="LinkContainer"><NavLink to="/history" activeStyle={{ color: "#3B9EE5" }}>HISTORY</NavLink></div>
                     <div className="LinkContainer"><NavLink to="/subjects" activeStyle={{ color: "#3B9EE5" }}>SUBJECTS</NavLink></div>
                 </div>
             </div>

@@ -22,6 +22,7 @@ export default class CreateAssignment extends Component {
             weight: 0,
             grade: 0,
             dueDate: new Date(),
+            completed: false, // all assignments created default not completed
             subjects: []
         }
     }
@@ -78,7 +79,8 @@ export default class CreateAssignment extends Component {
             assignment: this.state.assignment,
             weight: Number(this.state.weight),
             grade: Number(this.state.grade),
-            dueDate: this.state.dueDate
+            dueDate: this.state.dueDate,
+            completed: this.state.completed
         }
 
         console.log(assignment)

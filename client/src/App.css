@@ -1,5 +1,5 @@
 .App {
-  width: 700px;
+  width: 750px;
 }
 
 h1 {
@@ -65,7 +65,7 @@ form {
   position: fixed; 
   bottom: 0%;
   padding: 50px 0px 20px 0px;
-  width: 700px;
+  width: 750px;
   height: 100px;
   background-color: var(--main-color);
   background: linear-gradient(to top, var(--main-color) 80%, rgb(255, 255, 255, 0));
@@ -91,7 +91,7 @@ form {
   width: 90px;
 }
 
-.DeletePlaceholder, .EditPlaceholder{
+.DeletePlaceholder, .EditPlaceholder, .CheckPlaceholder{
   width: 20px;
 }
 
@@ -119,7 +119,7 @@ form {
   margin: 5px 0px;
 }
 
-.Delete, .Edit, .Edit a {
+.Delete, .Edit, .Edit a, .Complete, .NotComplete {
   background-color: var(--sec-color);
   border: none;
   color: var(--main-color);
@@ -129,6 +129,22 @@ form {
   text-decoration: none;
 }
 
-.Delete:hover, .Edit:hover, .Edit a:hover {
+.Complete {
+  color: var(--accent-green);
+}
+
+.Delete:hover {
   color: var(--accent-red);
+}
+
+.Edit a:hover {
+  color: var(--accent-blue);
+}
+
+.NotComplete:hover {
+  color: var(--accent-green);
+}
+
+.Complete:hover {
+  color: var(--main-color);
 }

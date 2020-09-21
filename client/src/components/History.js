@@ -4,7 +4,7 @@ import axios from "axios";
 import Assignment from "./Assignment";
 import CreateAssignment from './CreateAssignment';
 
-export default class Assignments extends Component {
+export default class History extends Component {
     constructor(props) {
         super();
 
@@ -24,7 +24,7 @@ export default class Assignments extends Component {
                     assignments: res.data.sort((a, b) => {
                         return new Date(a.dueDate).getTime() -
                             new Date(b.dueDate).getTime()
-                    }).filter(el => el.completed === false)
+                    }).filter(el => el.completed === true)
                 })
             })
             .catch((err) => { console.log(err) });
@@ -39,7 +39,7 @@ export default class Assignments extends Component {
                     assignments: res.data.sort((a, b) => {
                         return new Date(a.dueDate).getTime() -
                             new Date(b.dueDate).getTime()
-                    }).filter(el => el.completed === false)
+                    }).filter(el => el.completed === true)
                 })
             })
             .catch((err) => { console.log(err) });
@@ -92,7 +92,7 @@ export default class Assignments extends Component {
                 <div className="AssignmentList">
                     {this.state.assignments.map((assignment) => {
                         return (
-                            <Assignment assignment={assignment} deleteAssignment={this.deleteAssignment} checkAssignment={this.checkAssignment} key={assignment._id} checkType="NotComplete" />
+                            <Assignment assignment={assignment} deleteAssignment={this.deleteAssignment} checkAssignment={this.checkAssignment} key={assignment._id} checkType="Complete" />
                         );
                     })}
                 </div>

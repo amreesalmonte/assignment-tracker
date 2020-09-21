@@ -15,13 +15,15 @@ router.route("/add").post((req, res) => {
     const weight = req.body.weight;
     const grade = req.body.grade;
     const dueDate = Date.parse(req.body.dueDate);
+    const completed = req.body.completed;
 
     const newAssignment = new Assignment({
         subject,
         assignment,
         weight,
         grade,
-        dueDate
+        dueDate,
+        completed
     });
 
     newAssignment.save()
@@ -52,6 +54,7 @@ router.route("/update/:id").post((req, res) => {
             assignment.weight = Number(req.body.weight);
             assignment.grade = Number(req.body.grade);
             assignment.dueDate = Date.parse(req.body.dueDate);
+            assignment.completed = req.body.completed;
 
             assignment.save()
                 .then(() => res.json("Assignment updated in database"))
